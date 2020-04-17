@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		 http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+		 http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		 http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	
+	<bean id="quizServer" class="com.cg.service.QuizService">
+		<property name="qmap">
+			<map>
+				<entry key="#{q1.qid}" value-ref="q1" />
+				<entry key="#{q2.qid}" value-ref="q2" />
+				<entry key="#{q3.qid}" value-ref="q3" />
+				<entry key="#{q4.qid}" value-ref="q4" />
+				<entry key="#{q5.qid}" value-ref="q5" />
+			</map>
+		</property>
+	</bean>
+ 
+	<bean id="q1" class="com.cg.entity.Question">
+		<constructor-arg index="0" value="1"/>
+		<constructor-arg index="1" value="what is the size of int type?"/>
+		<constructor-arg index="2" value="1"/>
+		<constructor-arg index="3" value="2"/>
+		<constructor-arg index="4" value="4"/>
+		<constructor-arg index="5" value="4"/>
+	</bean>
+	
+	<bean id="q2" class="com.cg.entity.Question">
+		<constructor-arg index="0" value="2"/>
+		<constructor-arg index="1" value="what is the size of short type?"/>
+		<constructor-arg index="2" value="1"/>
+		<constructor-arg index="3" value="2"/>
+		<constructor-arg index="4" value="4"/>
+		<constructor-arg index="5" value="4"/>
+	</bean>
+	
+	<bean id="q3" class="com.cg.entity.Question">
+		<constructor-arg index="0" value="3"/>
+		<constructor-arg index="1" value="what is the size of float type?"/>
+		<constructor-arg index="2" value="1"/>
+		<constructor-arg index="3" value="8"/>
+		<constructor-arg index="4" value="4"/>
+		<constructor-arg index="5" value="4"/>
+	</bean>
+	
+	<bean id="q4" class="com.cg.entity.Question">
+		<constructor-arg index="0" value="4"/>
+		<constructor-arg index="1" value="what is the size of byte type?"/>
+		<constructor-arg index="2" value="1"/>
+		<constructor-arg index="3" value="2"/>
+		<constructor-arg index="4" value="4"/>
+		<constructor-arg index="5" value="1"/>
+	</bean>
+	
+	<bean id="q5" class="com.cg.entity.Question">
+		<constructor-arg index="0" value="5"/>
+		<constructor-arg index="1" value="Collection maintain unique elements"/>
+		<constructor-arg index="2" value="list"/>
+		<constructor-arg index="3" value="set"/>
+		<constructor-arg index="4" value="queue"/>
+		<constructor-arg index="5" value="set"/>
+	</bean>
+	
+
+</beans>
